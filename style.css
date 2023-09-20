@@ -1,0 +1,77 @@
+body{
+    background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.9360994397759104) 60%, rgba(252,176,69,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    vertical-align: middle;
+    position: relative;
+    top: 50%;
+    padding: 20px;
+}
+.container input{
+    width: 340px;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    font-size: 1.5rem;
+}
+.container input::after{
+    border: 0;
+}
+.container button{
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    color: rgba(131,58,180,1);
+    background-color: white;
+
+}
+#list-container{
+    margin-top: 40px;
+    font-size: 1.5rem;
+    color: black;
+
+}
+#list-container li{
+    background-color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    margin: 50px;
+}
+#list-container li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%
+}
+#list-container li.checked{
+
+    color:#555;
+    text-decoration: line-through;
+
+}
+#list-container li span.delete-button {
+    cursor: pointer;
+    color: red;
+    margin-left: 10px;
+  }
+  
+  /* Style the delete button on hover */
+  #list-container li span.delete-button:hover {
+    font-weight: bold;
+  }
+  
+  /* Style Font Awesome icons */
+  .fa-times {
+    font-size: 18px;
+  }
