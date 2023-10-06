@@ -1,37 +1,39 @@
 const task=document.getElementById("task");
 const listContainer=document.getElementById("list-container");
-
+const todolist=document.getElementById('todolist');
 
 function addtodo(){
     if(task.value==''){
         alert('Plzz enter task...');
     }else{
-        let li=document.createElement('li');
+        let todo=document.createElement('div');
+        todo.classList.add('todo');
+        const li=document.createElement('li');
         li.innerHTML=task.value;
-        listContainer.appendChild(li);
-        let span = document.createElement("span");
-        span.innerHTML = '<i class="fas fa-times"></i>';
-        span.classList.add('delete-button'); // Add the delete-button class
-        li.appendChild(span);
-        
-
+        li.classList.add('li');
+        let cross = document.createElement("button");
+        cross.classList.add('delete-button');
+        let done=document.createElement('button');
+        done.classList.add('complete-button');
+        cross.innerHTML = '<i class="fas fa-times"></i>';
+        done.innerHTML='<i class="fas fa-check"></i>';
+        todo.appendChild(li);
+        todo.appendChild(done);
+        todo.appendChild(cross);
+        todolist.appendChild(todo);
     }
     task.value='';
-    // savedata();
+    savedata();
 }
-listContainer.addEventListener("click", function(e) {
-    if (e.target.tagName === 'LI') {
-        e.target.classList.toggle('checked');
+todolist.addEventListener("click", function(e) {
+    const item=e.target
+    const todo =item.parentElement
+    if (item.classList[0] === 'complete-button') {
+        todo.classList.toggle('checked');
         savedata();
-    } else if (e.target.tagName === 'SPAN') {
-        // Check if the clicked SPAN has a specific class or data attribute
-        if (e.target.classList.contains('delete-button')) {
-            let lis = e.target.closest('li');
-            if (lis) {
-                lis.remove();
-                savedata();
-            }
-        }
+    } else if (item.classList[0] === 'delete-button') {
+        todo.remove();
+        
     }
 }, false);
 
@@ -43,4 +45,3 @@ listContainer.addEventListener("click", function(e) {
 function showtask(){
     listContainer.innerHTML=localStorage.getItem('data');
 }
-// showtask();

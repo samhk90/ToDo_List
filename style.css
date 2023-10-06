@@ -30,44 +30,57 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.93609
     background-color: white;
 
 }
-#list-container{
-    margin-top: 40px;
-    font-size: 1.5rem;
+.todo{
+    margin: 0.5rem;
+    background: white;
     color: black;
-
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.6s ease;
+    border-radius: 20px;
 }
-#list-container li{
+.todo  li{
     background-color: white;
-    padding: 5px;
+    padding: 10px;
     border: none;
     border-radius: 20px;
     height: 40px;
     list-style: none;
+    font-size: 1.3rem;
     cursor: pointer;
     position: relative;
-    margin: 50px;
+    width: 70%;
 }
-#list-container li::before{
+.todo li::before{
     content: '';
     position: absolute;
     height: 28px;
     width: 28px;
     border-radius: 50%
 }
-#list-container li.checked{
+.todo.checked{
 
     color:#555;
     text-decoration: line-through;
-
+    opacity: 0.5;
 }
-#list-container li span.delete-button {
+.delete-button {
     cursor: pointer;
     color: red;
-    margin-left: 10px;
+    height: 100%;
+    width: 100%;
+  }
+
+.todo .complete-button {
+    cursor: pointer;
+    color:black;
+    margin-left: 100px;
   }
   
   /* Style the delete button on hover */
-  #list-container li span.delete-button:hover {
+  #list-container li button.delete-button:hover {
     font-weight: bold;
   }
   
