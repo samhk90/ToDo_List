@@ -1,7 +1,7 @@
 const task=document.getElementById("task");
 const listContainer=document.getElementById("list-container");
 const todolist=document.getElementById('todolist');
-
+showtask();
 function addtodo(){
     if(task.value==''){
         alert('Plzz enter task...');
@@ -33,15 +33,16 @@ todolist.addEventListener("click", function(e) {
         savedata();
     } else if (item.classList[0] === 'delete-button') {
         todo.remove();
-        
+        savedata();
     }
 }, false);
 
 
  function savedata(){
-    localStorage.setItem("data",listContainer.innerHTML);
+    localStorage.setItem("data",todolist.innerHTML);
  }
 
 function showtask(){
-    listContainer.innerHTML=localStorage.getItem('data');
+    todolist.innerHTML=localStorage.getItem('data');
 }
+
